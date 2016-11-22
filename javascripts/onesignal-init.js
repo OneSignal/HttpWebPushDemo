@@ -4,6 +4,7 @@ var initOptions = {
   autoRegister: true,
   notifyButton: {
     enable: true
+  }
 };
 
 OneSignal.push(function() {
