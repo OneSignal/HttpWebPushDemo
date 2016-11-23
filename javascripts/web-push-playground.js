@@ -45,6 +45,25 @@ function hookResubscribe() {
   });
 }
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getRandomTagData() {
+  return {
+    number: getRandomInt(100, 999)
+  };
+}
+
+function hookTagData() {
+  document.querySelector('#button-tag-data').addEventListener('click', function() {
+    OneSignal.sendTags(getRandomTagData())
+             .then(function() {
+               swal("You've been tagged!", "Check out the All Users page of your dashboard to see your tagged user entry.", "success");
+             });
+  });
+}
+
 function showHideContentOnSubscriptionChange() {
   OneSignal.on('subscriptionChange', showHideContent);
 }
@@ -55,6 +74,7 @@ function oneSignalStuff() {
     showHideContentOnSubscriptionChange();
     hookSubscribe();
     hookResubscribe();
+    hookTagData();
     hookSendNotificationButton();
   });
 }
