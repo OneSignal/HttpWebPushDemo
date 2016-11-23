@@ -42,6 +42,7 @@ function hookSubscribe() {
 function oneSignalStuff() {
   OneSignal.push(function() {
     showHideContent();
+    hookSubscribe();
     hookSendNotificationButton();
   });
 }
