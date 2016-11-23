@@ -300,3 +300,7 @@ button {
 .hidden {
   display: none !important;
 }
+
+.gist-file .gist-data {
+  max-height: 300px;
+}
