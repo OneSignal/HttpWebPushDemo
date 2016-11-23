@@ -53,8 +53,12 @@ function oneSignalStuff() {
 }
 
 function showHideContent() {
-  OneSignal.isPushNotificationsEnabled()
-           .then(function(isEnabled) {
+  Promise.all([
+    OneSignal.isPushNotificationsEnabled(),
+    OneSignal.isOptedOut()
+  ]).then(function(results) {
+             var isEnabled = results[0];
+             var isOptedOut = results[1];
              if (isEnabled) {
                var elements = document.querySelectorAll('.show-when-subscribed');
                elements.forEach(function(element) {    
@@ -64,15 +68,38 @@ function showHideContent() {
                elements.forEach(function(element) {    
                  element.classList.add("hidden");
                });
-             } else {
-               var elements = document.querySelectorAll('.show-when-unsubscribed');
-               elements.forEach(function(element) {    
-                 element.classList.remove("hidden");
-               });
-               var elements = document.querySelectorAll('.show-when-subscribed');
+               var elements = document.querySelectorAll('.show-when-subscribed-and-opted-out');
                elements.forEach(function(element) {    
                  element.classList.add("hidden");
                });
+             } else {
+               if (isOptedOut) {
+                 var elements = document.querySelectorAll('.show-when-subscribed-and-opted-out');
+                 elements.forEach(function(element) {    
+                   element.classList.remove("hidden");
+                 });
+                 var elements = document.querySelectorAll('.show-when-unsubscribed');
+                 elements.forEach(function(element) {    
+                   element.classList.add("hidden");
+                 });
+                 var elements = document.querySelectorAll('.show-when-subscribed');
+                 elements.forEach(function(element) {    
+                   element.classList.add("hidden");
+                 });                 
+               } else {
+                 var elements = document.querySelectorAll('.show-when-unsubscribed');
+                 elements.forEach(function(element) {    
+                   element.classList.remove("hidden");
+                 });
+                 var elements = document.querySelectorAll('.show-when-subscribed');
+                 elements.forEach(function(element) {    
+                   element.classList.add("hidden");
+                 });
+                 var elements = document.querySelectorAll('.show-when-subscribed-and-opted-out');
+                 elements.forEach(function(element) {    
+                   element.classList.add("hidden");
+                 });
+               }
              }
            });
 }
