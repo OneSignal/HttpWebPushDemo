@@ -15,7 +15,7 @@ var initOptions = {
 function changeServiceWorkerFilePath() {
   OneSignal.SERVICE_WORKER_PATH = 'WebPushDemo/OneSignalSDKWorker.js';
   OneSignal.SERVICE_UPDATER_WORKER_PATH = 'WebPushDemo/OneSignalSDKUpdaterWorker.js';
-  OneSignal.SERVICE_WORKER_PARAM = {scope: '/WebPushDemo' };
+  OneSignal.SERVICE_WORKER_PARAM = {scope: '/WebPushDemo/' };
 };
 
 OneSignal.push(function() {
