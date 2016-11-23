@@ -30,12 +30,13 @@ function hookSendNotificationButton() {
         url: 'https://example.com/?_osp=do_not_open'
       }]
     );
-   swal({
-     title: "Notification sent!", 
-     text: "You should see it right about now.",
-     timer: 1500,
-     html: true,
-     type: "success");
+    swal({
+        title: "Notification sent!",
+        text: "You should see it right about now.",
+        timer: 1500,
+        html: true,
+        type: "success"
+    });
   });
 }
 
