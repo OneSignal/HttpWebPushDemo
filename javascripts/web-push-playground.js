@@ -34,7 +34,7 @@ function hookSendNotificationButton() {
 }
 
 function hookSubscribe() {
-  document.querySelector('#button-send-notification').addEventListener('click', function() {
+  document.querySelector('#button-subscribe').addEventListener('click', function() {
     OneSignal.registerForPushNotifications();
   });
 }
