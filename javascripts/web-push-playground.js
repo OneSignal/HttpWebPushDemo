@@ -39,9 +39,14 @@ function hookSubscribe() {
   });
 }
 
+function showHideContentOnSubscriptionChange() {
+  OneSignal.on('subscriptionChange', showHideContent);
+}
+
 function oneSignalStuff() {
   OneSignal.push(function() {
     showHideContent();
+    showHideContentOnSubscriptionChange();
     hookSubscribe();
     hookSendNotificationButton();
   });
