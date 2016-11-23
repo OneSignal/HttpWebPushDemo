@@ -1,5 +1,5 @@
 function hookSendNotificationButton() {
-  document.querySelector('#button-send-notification').addEventListener('click') {
+  document.querySelector('#button-send-notification').addEventListener('click', function() {
     OneSignal.sendSelfNotification(
       /* Title (defaults if unset) */
       "OneSignal Web Push Notification",
@@ -30,7 +30,7 @@ function hookSendNotificationButton() {
         url: 'https://example.com/?_osp=do_not_open'
       }]
     );
-  }
+  });
 }
 
 function oneSignalStuff() {
