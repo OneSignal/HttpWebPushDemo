@@ -30,6 +30,12 @@ function hookSendNotificationButton() {
         url: 'https://example.com/?_osp=do_not_open'
       }]
     );
+   swal({
+     title: "Notification sent!", 
+     text: "You should see it right about now.",
+     timer: 1500,
+     html: true,
+     type: "success");
   });
 }
 
@@ -59,7 +65,11 @@ function hookTagData() {
   document.querySelector('#button-tag-data').addEventListener('click', function() {
     OneSignal.sendTags(getRandomTagData())
              .then(function() {
-               swal("You've been tagged!", "Check out the All Users page of your dashboard to see your tagged user entry.", "success");
+               swal({
+                 title: "You've been tagged!", 
+                 text: "Check out the <a href='https://onesignal.com/apps/fc6d5514-687f-4765-bd11-431b312b17fc/players'>All Users page</a> (be sure to <a href='https://onesignal.com'>login first</a>) of your dashboard to see your tagged user entry.",
+                 html: true,
+                 type: "success");
              });
   });
 }
