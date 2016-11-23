@@ -41,6 +41,49 @@
             <p>Please <a href="https://documentation.onesignal.com/docs/troubleshooting-web-push#section-clearing-your-cache-and-resetting-push-permissions">follow these instructions</a> to wipe your site's storage and reset your notification permissions.</p>
 
             <p><em>Be sure to close</em> all existing tabs to this site after following those instructions, or simply restart your browser, to complete the reset process.</p>
+            
+            <hr>
+            
+            <div class="hidden show-when-subscribed">
+                 <h3>Send a Notification</h3>
+                
+                You can paste this below code into the Developer Tools Console of this page, or click below.
+                
+                <code>
+                    OneSignal.sendSelfNotification(
+                      /* Title (defaults if unset) */
+                      "OneSignal Web Push Notification",
+                      /* Message (defaults if unset) */
+                      "Action buttons increase the ways your users can interact with your notification.", 
+                       /* URL (defaults if unset) */
+                      'https://example.com/?_osp=do_not_open',
+                      /* Icon */
+                      'https://onesignal.com/images/notification_logo.png',
+                      {
+                        /* Additional data hash */
+                        notificationType: 'news-feature'
+                      }, 
+                      [{ /* Buttons */
+                        /* Choose any unique identifier for your button. The ID of the clicked button 			 is passed to you so you can identify which button is clicked */
+                        id: 'like-button',
+                        /* The text the button should display. Supports emojis. */
+                        text: 'Like',
+                        /* A valid publicly reachable URL to an icon. Keep this small because it's 				 downloaded on each notification display. */
+                        icon: 'http://i.imgur.com/N8SN8ZS.png',
+                        /* The URL to open when this action button is clicked. See the sections below 			 for special URLs that prevent opening any window. */
+                        url: 'https://example.com/?_osp=do_not_open'
+                      },
+                      {
+                        id: 'read-more-button',
+                        text: 'Read more',
+                        icon: 'http://i.imgur.com/MIxJp1L.png',
+                        url: 'https://example.com/?_osp=do_not_open'
+                      }]
+                    );
+                </code>
+
+                <button id="button-send-notification">Send a notification</button>
+            </div>    
         </section>
         <footer>
         </footer>
