@@ -291,3 +291,8 @@ button {
   -moz-appearance: none;
   appearance: none;
 }
+
+.gist {
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+}
