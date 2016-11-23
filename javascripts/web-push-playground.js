@@ -39,6 +39,12 @@ function hookSubscribe() {
   });
 }
 
+function hookResubscribe() {
+  document.querySelector('#button-resubscribe').addEventListener('click', function() {
+    OneSignal.setSubscription(true);
+  });
+}
+
 function showHideContentOnSubscriptionChange() {
   OneSignal.on('subscriptionChange', showHideContent);
 }
@@ -48,6 +54,7 @@ function oneSignalStuff() {
     showHideContent();
     showHideContentOnSubscriptionChange();
     hookSubscribe();
+    hookResubscribe();
     hookSendNotificationButton();
   });
 }
