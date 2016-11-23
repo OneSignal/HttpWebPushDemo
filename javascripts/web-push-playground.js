@@ -33,6 +33,12 @@ function hookSendNotificationButton() {
   });
 }
 
+function hookSubscribe() {
+  document.querySelector('#button-send-notification').addEventListener('click', function() {
+    OneSignal.registerForPushNotifications();
+  });
+}
+
 function oneSignalStuff() {
   OneSignal.push(function() {
     showHideContent();
@@ -48,10 +54,18 @@ function showHideContent() {
                elements.forEach(function(element) {    
                  element.classList.remove("hidden");
                });
+               var elements = document.querySelectorAll('.show-when-unsubscribed');
+               elements.forEach(function(element) {    
+                 element.classList.add("hidden");
+               });
              } else {
                var elements = document.querySelectorAll('.show-when-unsubscribed');
                elements.forEach(function(element) {    
                  element.classList.remove("hidden");
+               });
+               var elements = document.querySelectorAll('.show-when-subscribed');
+               elements.forEach(function(element) {    
+                 element.classList.add("hidden");
                });
              }
            });
