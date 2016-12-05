@@ -12,13 +12,12 @@ var initOptions = {
   
   We're hosting on GitHub pages so the worker files can't be uploaded to the root.
  */
-function changeServiceWorkerFilePath() {
-  OneSignal.SERVICE_WORKER_PATH = 'WebPushDemo/OneSignalSDKWorker.js';
-  OneSignal.SERVICE_UPDATER_WORKER_PATH = 'WebPushDemo/OneSignalSDKUpdaterWorker.js';
+function changeServiceWorkerFilePath(initOptions) {
+  initOptions.path = '/WebPushDemo/';
   OneSignal.SERVICE_WORKER_PARAM = {scope: '/WebPushDemo/' };
 };
 
 OneSignal.push(function() {
-  changeServiceWorkerFilePath();
+  changeServiceWorkerFilePath(initOptions);
   OneSignal.init(initOptions);
 });
