@@ -1,5 +1,5 @@
 {
-  "name": "Web Push Demo",
+  "name": "HTTP Web Push Demo",
   "tagline": "",
   "body": "### How does this demo work?\r\n\r\n- You should be automatically prompted to subscribe to notifications the first time you visit this website. If you click _X_, you won't be prompted again for 8 hours. You can also click _Block_ to not be prompted again.\r\n\r\n- You should receive a welcome notification after subscribing.\r\n\r\n### How can I reset my state to test like a new user?\r\n\r\nPlease [follow these instructions](https://documentation.onesignal.com/docs/troubleshooting-web-push#section-clearing-your-cache-and-resetting-push-permissions ) to wipe your site's storage and reset your notification permissions.\r\n\r\n_Be sure to close_ all existing tabs to this site after following those instructions, or simply restart your browser, to complete the reset process.",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
